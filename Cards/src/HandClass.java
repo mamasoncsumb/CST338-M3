@@ -26,7 +26,7 @@ class Hand {
    {
       if (numCards != MAX_CARDS)
       {
-         myCards[numCards] = card;
+         myCards[numCards] = new Card(card);
          numCards ++;
          return true;
       }
@@ -81,43 +81,41 @@ class Hand {
    //Testing Hand Class Here
    public static void main(String[] args) 
    {
-            Card handCard1 = new Card('A', Card.Suit.diamonds);
-            Card handCard2 = new Card('2', Card.Suit.clubs);
-            Card handCard3 = new Card('K', Card.Suit.hearts);
-            Card handCard4 = new Card('T', Card.Suit.spades);
+      Card handCard1 = new Card('A', Card.Suit.diamonds);
+      Card handCard2 = new Card('2', Card.Suit.clubs);
+      Card handCard3 = new Card('K', Card.Suit.hearts);
+      Card handCard4 = new Card('T', Card.Suit.spades);
             
-            Card[] myCards = new Card[] {handCard1,handCard2,handCard3,handCard4};
+      Card[] myCards = new Card[] {handCard1,handCard2,handCard3,handCard4};
             
-            Hand myHand = new Hand();
+      Hand myHand = new Hand();
             
-            boolean handFull = true;
+      boolean handFull = true;
             
-            while(handFull)
-            {
-               for(Card card : myCards)
-               {
-                  handFull = myHand.takeCard(card);
-               }
-            }
+      while(handFull)
+      {
+         for(Card card : myCards)
+         {
+            handFull = myHand.takeCard(card);
+         }
+      }
+      
+      System.out.println("Hand Full!");
+      System.out.println("Hand = " + myHand.toString() + "\n");
+      System.out.println("\n");
             
-            System.out.println("Hand Full!");
-            System.out.println("Hand = " + myHand.toString() + "\n");
-            System.out.println("\n");
+      System.out.println("Testing inspectCard()!");
+      System.out.println(myHand.inspectCard(10));
+      System.out.println(myHand.inspectCard(51));
+      System.out.println("\n");
             
-
+      System.out.println("Testing playCard()!");
             
-            System.out.println("Testing inspectCard()!");
-            System.out.println(myHand.inspectCard(10));
-            System.out.println(myHand.inspectCard(51));
-            System.out.println("\n");
-            
-            System.out.println("Testing playCard()!");
-            
-            while(myHand.getNumCards() > 0)
-            {
-               System.out.println(myHand.playCard());
-               
-            }
-            System.out.println("\n");
+      while(myHand.getNumCards() > 0)
+      {
+         System.out.println(myHand.playCard());         
+      }
+      
+      System.out.println("\n");
    }
 }

@@ -18,6 +18,12 @@ class Card
    {
       this.set(value, suit);
    }
+
+   //Copy constructor
+   public Card (Card card)
+   {
+      this.set(card.value, card.suit);
+   }
    
    //formats value and suit data members to a readable string format. If errorFlag is true the method returns "illegal" as the value.
    public String toString()
